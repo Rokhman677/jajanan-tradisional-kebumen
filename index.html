@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANAKA | Makanan Tradisional Indonesia</title>
+    <style>
+       
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fffaf4;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 60px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e76f51;
+        }
+
+        .logo span {
+            color: #2a9d8f;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #e76f51;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            background-image: url(JAJAN.jpg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background-color: #e76f51;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2a9d8f;
+        }
+
+        /* Tentang */
+        .tentang {
+            padding: 100px 60px;
+            text-align: center;
+       
+        }
+
+        .tentang h2 {
+            color: #e76f51;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .tentang p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+
+
+        /* Produk */
+        .produk {
+            background-color: #fdf3ea;
+            padding: 100px 60px;
+            text-align: center;
+        }
+
+        .produk h2 {
+            color: #e76f51;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .produk-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        card {
+            background: white;
+            border-radius: 15px;
+            width: 280px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        card:hover {
+            transform: translateY(-10px);
+        }
+
+        card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        card h3 {
+            color: #2a9d8f;
+            margin: 15px 0 5px;
+        }
+
+        card p {
+            padding: 0 15px 15px;
+            font-size: 0.95rem;
+        }
+
+        /* Keunggulan */
+        .keunggulan {
+            background-color: #fff;
+            text-align: center;
+            padding: 100px 60px;
+        }
+
+        .keunggulan h2 {
+            color: #e76f51;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .grid .item {
+            background-color: #fdf3ea;
+            padding: 25px;
+            border-radius: 15px;
+            width: 280px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .grid .item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Kontak */
+        .kontak {
+            text-align: center;
+            padding: 100px 60px;
+            background-color: #fff;
+        }
+
+        .kontak h2 {
+            color: #e76f51;
+            margin-bottom: 15px;
+        }
+
+        .kontak p {
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #e76f51;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2a9d8f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ffe8cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .tentang img {
+                width: 100%;
+            }
+            .produk-container, .grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <div class="logo">CANAKA<span>food</span></div>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#keunggulan">Keunggulan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <h2>Rasakan Keaslian Cita Rasa Tradisional Indonesia</h2>
+            <p>Dari dapur UMKM lokal, kami menghadirkan cita rasa nusantara yang autentik, sehat, dan menggugah selera.</p>
+            <a href="#produk" class="btn">Jelajahi Produk</a>
+        </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="tentang" id="tentang">
+        <h2>Tentang Kami</h2>
+        <p><b>CANAKA Food</b> adalah usaha UMKM yang berfokus pada pelestarian dan pengembangan jajanan tradisional khas Indonesia, 
+            khususnya dari Jawa Tengah. Dengan mengusung semangat “Rasa Nusantara, Cita Rasa Warisan”, <b>CANAKA Food</b> menghadirkan berbagai kue legendaris seperti apem yang lembut dan manis, 
+            wajik gula merah yang legit dan harum, sengkulun yang kenyal berlapis warna cantik, hingga kue lapis yang klasik namun selalu menggugah selera.
+             Setiap produk dibuat dengan bahan alami pilihan tanpa pengawet, mengutamakan kebersihan dan cita rasa khas rumahan. Melalui kemasan modern dan tampilan menarik,
+              <b>CANAKA Food</b> tidak hanya menjual makanan, tetapi juga menghadirkan pengalaman rasa yang membangkitkan nostalgia dan kebanggaan terhadap kuliner tradisional Jawa Tengah terutama di KEBUMEN, 
+              menjadikannya pilihan tepat untuk oleh-oleh, acara keluarga, maupun hidangan khas di berbagai kesempatan.</p>
+        
+    </section>
+
+    <!-- PRODUK -->
+    <section class="produk" id="produk">
+        <h2>Produk Unggulan Kami</h2>
+        <div class="produk-container">
+            <card>
+                <img src="klepon.jpg" alt="Klepon">
+                <h3>Klepon</h3>
+                <p>Ketan manis isi gula merah cair, diselimuti kelapa parut segar. Cita rasa nostalgia setiap gigitan.</p>
+            </card>
+            <card>
+                <img src="lemper.png" alt="Lemper Ayam">
+                <h3>Lemper Ayam</h3>
+                <p>Perpaduan gurih ketan dan ayam suwir pedas manis, cocok untuk segala suasana.</p>
+            </card>
+            <card>
+                <img src="Lapis.jpg" alt="Lapis Legit">
+                <h3>Lapis </h3>
+                <p>kue tradisional berlapis warna-warni dari campuran tepung beras, santan, dan gula, bertekstur kenyal lembut dengan rasa manis legit.</p>
+            </card>
+            <card>
+                <img src="onde onde.jpg" alt="Onde-Onde">
+                <h3>Onde-Onde</h3>
+                <p>Bola ketan isi kacang hijau lembut, renyah di luar, manis di dalam.</p>
+            </card>
+        </div>
+    </section>
+
+        <section class="produk" id="produk">
+        
+        <div class="produk-container">
+            <card>
+                <img src="risoles.jpg" alt="Risoles">
+                <h3>Risoles isi mayo atau ayam atau sayur</h3>
+                <p>Kkudapan gurih berisi ragout ayam, sayuran, atau daging yang dibungkus kulit tipis lalu digoreng hingga renyah keemasan.</p>
+            </card>
+            <card>
+                <img src="kueku.jpg" alt="Kueku">
+                <h3>Kueku</h3>
+                <p>kue tradisional berwarna merah berbentuk bulat lonjong, berisi kacang hijau manis dengan lapisan luar kenyal dari tepung ketan yang dikukus di atas daun pisang.</p>
+            </card>
+            <card>
+                <img src="sengkulun.jpg" alt="Sengkulun">
+                <h3>Sengkulun</h3>
+                <p>berlapis warna-warni, memiliki tekstur kenyal lembut dan rasa manis gurih khas santan.</p>
+            </card>
+            <card>
+                <img src="wajik.jpg" alt="Wajik">
+                <h3>Wajik</h3>
+                <p>udapan tradisional Indonesia yang terbuat dari beras ketan dan gula merah, bertekstur lengket manis legit atau dengan aroma khas daun pandan..</p>
+            </card>
+        </div>
+    </section>   
+     <section class="produk" id="produk">
+        
+        <div class="produk-container">
+            <card>
+                <img src="arem arem.jpg" alt="arem arem">
+                <h3>arem arem</h3>
+                <p>perpaduan Nasi berisi sayuran atau ayam yang mengenyangkan.</p>
+            </card>
+            <card>
+                <img src="apem.jpg" alt="apem">
+                <h3>apem</h3>
+                <p>kue tradisional Indonesia berbahan dasar tepung beras yang dimasak dengan cara dikukus, memiliki tekstur lembut dan rasa manis legit, sering disajikan pada acara adat atau keagamaan..</p>
+            </card>
+
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN -->
+    <section class="keunggulan" id="keunggulan">
+        <h2>Mengapa Memilih Kami?</h2>
+        <div class="grid">
+            <div class="item">
+                <h3>💚 100% Bahan Alami</h3>
+                <p>Kami hanya menggunakan bahan segar tanpa pengawet dan pewarna buatan.</p>
+            </div>
+            <div class="item">
+                <h3>🍴 Resep Tradisional</h3>
+                <p>Resep turun-temurun khas Indonesia yang tak lekang oleh waktu.</p>
+            </div>
+            <div class="item">
+                <h3>🚚 Siap Kirim</h3>
+                <p>Pesanan dapat dikirim daerah SELANG,Kec.KEBUMEN dan sekitarnya dengan kemasan aman dan higienis.</p>
+            </div>
+            <div class="item">
+                <h3>🤝 Dukung UMKM Lokal</h3>
+                <p>Setiap pembelian Anda membantu pelaku usaha kecil berkembang.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="kontak" id="kontak">
+        <h2>Hubungi Kami</h2>
+        <p>Pesan langsung, jadi mitra, atau ingin kerja sama? Silakan isi form di bawah ini.</p>
+        <form>
+            <input type="text" placeholder="Nama Anda" required>
+            <input type="email" placeholder="Email Anda" required>
+            <textarea rows="5" placeholder="Pesan Anda..." required></textarea>
+            <button type="submit">Kirim Pesan</button>
+        </form>
+        <p>Atau hubungi langsung via <a href="https://wa.me/6289627584266" target="_blank">WhatsApp</a></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 CANAKA FOOD | UMKM Lokal - Cinta Produk Indonesia</p>
+    </footer>
+</body>
+</html>
